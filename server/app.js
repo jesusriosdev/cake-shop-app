@@ -27,6 +27,12 @@ app.use((req, res, next) => {
 	next();
 });
 
+// Load file system library for node.
+const fs = require("fs");
+
+// This is where the routes are going to be handled.
+const routes = require("./routes/routes.js")(app, fs);
+
 // Launch express application on server port 3001.
 const port = process.env.port || 3001;
 const server = app.listen(port, () => {
