@@ -19,13 +19,9 @@ app.use((req, res, next) => {
 	next();
 });
 
-// Configure the express application with body parser settings like JSON data handling.
-app.use((req, res, next) => {
-	bodyParser.json();
-	bodyParser.urlencoded({ extended: true });
-
-	next();
-});
+// Configure the express application with body parser to handle json and form requests.
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: true }));
 
 // Load file system library for node.
 const fs = require("fs");
