@@ -19,6 +19,10 @@ const memoryRoutes = (app) => {
 		return cakes.find((cake) => cake.id === id);
 	};
 
+	const GetIndex = (id) => {
+		return cakes.findIndex((cake) => cake.id == id);
+	};
+
 	// Get the list of cakes
 	app.get(baseFolder + "/", (req, res) => {
 		console.log(cakes);
@@ -40,13 +44,29 @@ const memoryRoutes = (app) => {
 		}
 	});
 
-	// Get info on a particular cake
+	// Get info on a particular cake.
 	app.get(baseFolder + "/:id", (req, res) => {
 
 		const id = Number(req.params["id"]);
 		const cakeFound = GetItem(id);
 		if (cakeFound !== undefined) {
 			res.status(200).send(cakeFound);
+		} else {
+			res.status(400).send("Cake not found!");
+		}
+	});
+	
+	// Delete a cake.
+	app.get(baseFolder + "/delete/:id", (req, res) => {
+
+		const id = Number(req.params["id"]);
+		const index = GetIndex(id);
+
+		console.log(index);
+
+		if (index > -1) {
+			cakes.splice(index, 1);
+			res.status(200).send("Cake deleted!");
 		} else {
 			res.status(400).send("Cake not found!");
 		}
