@@ -1,0 +1,26 @@
+[
+  {
+    "id": 1,
+    "name": "Cake 11",
+    "price": 30.99,
+    "flavors": "Chocolate"
+  },
+  {
+    "id": 2,
+    "name": "Cake 22",
+    "price": 50.99,
+    "flavors": "Chocolatesssss"
+  },
+  {
+    "id": 3,
+    "name": "Cake 3",
+    "price": 10.99,
+    "flavors": "Chocolate"
+  },
+  {
+    "id": 4,
+    "name": "Cake 1",
+    "price": 10.99,
+    "flavors": "Chocolate, Vanilla"
+  }
+]
